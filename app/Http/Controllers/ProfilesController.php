@@ -66,6 +66,15 @@ class ProfilesController extends Controller
 
   	if(request('image')){
 
+    /* FOR DH
+
+    $imagePath = request('image')->store('profile','public');
+    $storagePath = storage_path("{$imagePath}");
+    
+    $image = Image::make(request('image')->getRealPath())->fit('1000','1000')->save($storagePath);
+
+    */
+
 		$imagePath = request('image')->store('profile','public');
 
 		$image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);

@@ -35,6 +35,18 @@ class PostsController extends Controller
 			'image' => 'required|image'
 		]);
 
+
+
+		/* DREAMHOST CHANGES 
+
+		$imagePath = request('image')->store('uploads','public');
+		$storagePath = storage_path("{$imagePath}");
+		
+		$image = Image::make(request('image')->getRealPath())->fit('1200','1200')->save($storagePath);
+
+		*/
+
+
 		$imagePath = request('image')->store('uploads','public');
 
 		$image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
